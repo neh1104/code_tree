@@ -1,0 +1,8 @@
+# [[테스트]홀수만 출력 2](https://www.codetree.ai/trails/complete/curated-cards/test-output-only-odd-2)
+
+| 항목 | 내용 |
+|---|---|
+| 분류 | Trail |
+| 커리큘럼 | [Trail 1 / 단순 반복문 / for문 b → a 1씩 감소](https://www.codetree.ai/trail-info/novice-low/) |
+| 난이도 | 쉬움 |
+| 경험치 | 10 XP |
