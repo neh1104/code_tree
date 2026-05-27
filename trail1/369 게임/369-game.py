@@ -1,7 +1,7 @@
 n = int(input())
 
 for i in range(1, n+1):
-    if ('3' in str(i)) or ('6' in str(i)) or ('9' in str(i)) or (i % 3 == 0):
+    if set(str(i)) & set('369') or i % 3 == 0: #there are more CLEAN statement!
         print(0, end = ' ')
     else:
         print(i, end = ' ')
