@@ -6,6 +6,6 @@ while True:
         sum += c
         cnt += 1
         continue
-    print(f"{sum/cnt:.2f}")
-    break
+    print(f"{sum/cnt:.2f}") #round()함수는 소수점 뒤 의미없는 0은 제거함! 
+    break                   #따라서 정해진 자리까지 출력하고자 한다면 포맷팅이 정답!
     
