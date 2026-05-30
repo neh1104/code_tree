@@ -1,16 +1,17 @@
 n = int(input())
-
 print('* '*n)
-for i in range(1, n):
-    if i % 2 == 1:
-        for _ in range(i):
+for i in range(n-1):
+    for j in range(n):
+        if i>=j:
             print(' ', end = ' ')
-        for _ in range(n//2 - (i // 2)):
-            print('*', ' ', end = ' ')
-        print()
-    else:
-        for _ in range(i + 1):
+            continue
+        if j % 2 == 1:
+            print('*', end = ' ')
+            continue
+        else:
             print(' ', end = ' ')
-        for _ in range((n//2) - i//2):
-            print('*', ' ', end = ' ')
-        print()
+            continue
+    print()
+
+## 행렬의 특징을 살려 2차원 배열을 다루듯 접근
+## 조건이 행과 열 별로 나누어지기 때문에 조금 더 이해하기 편한 감이 있음
