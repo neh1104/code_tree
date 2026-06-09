@@ -27,7 +27,7 @@ def wornl(n):
         return arr[0]
 
     ls = cha(insu(wornl(n-1)), insu(arr[n-1]))+insu(arr[n-1])
-    prod = 1 #이게 재귀보다 앞에 있어야 프로그램이 돌아감
+    prod = 1 
     for i in ls:
         prod *= i
     return prod
