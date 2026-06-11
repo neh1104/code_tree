@@ -13,8 +13,8 @@ MAX = 2000
 sp = MAX //2
 
 ls = [
-    [0 for _ in range(MAX+1)]
-    for _ in range(MAX+1)
+    [0 for _ in range(MAX)]
+    for _ in range(MAX)
 ]
 
 for i in range(3):
