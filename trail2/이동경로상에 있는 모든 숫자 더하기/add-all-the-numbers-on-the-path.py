@@ -8,7 +8,7 @@ sum = board[x][y]
 d = 0
 dr = [-1, 0, 1, 0]
 dc = [0, 1, 0, -1]
-def move(i):
+def move():
     global d, x, y
     if i == 'L':
         d = (d+3)%4
@@ -27,7 +27,7 @@ def in_range(x, y):
     return 0<=x<n and 0<=y<n
 
 for i in str:
-    sum += move(i)
+    sum += move()
 
 print(sum)
 
