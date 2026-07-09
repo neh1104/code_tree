@@ -13,10 +13,7 @@ for i, bd in enumerate(board):
 x = abs(Lx-Bx)
 y = abs(Ly-By)
 
-if (Lx == Bx and Lx == Rx) or (Ly == By and Ly == Ry):
-    if (Lx-Rx)*(Bx-Rx) + (Ly-Ry)*(By-Ry) < 0:
-        print(x+y+1)
-    else:
-        print(x+y-1)
+if ((Lx == Bx and Lx == Rx) or (Ly == By and Ly == Ry)) and (Lx-Rx)*(Bx-Rx) + (Ly-Ry)*(By-Ry) < 0:
+    print(x+y+1)
 else:
     print(x+y-1)
