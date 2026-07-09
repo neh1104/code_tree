@@ -24,4 +24,10 @@ if len(lsiv) == 3:
 if len(lsv) == 3:
     v = lsv[0]*lsv[1]*lsv[2]
 
-print(max(i, ii, iii, iv, v))
+#print(max(i, ii, iii, iv, v))
+
+i = arr[-1]*arr[-2]*arr[-3]
+ii = arr[0]*arr[1]*arr[-1]
+iii = 0 if arr.count(0) > 0 else i
+
+print(max(i, ii, iii))
