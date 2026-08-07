@@ -11,8 +11,8 @@ def rectangle(i, j):
     x, y = i, j
     #print(i, j, 'i,j')
     MAX = 0
-    for d1 in range(1, min(i-1, n-j-1)+1):
-        for d2 in range(1, min(i-d1, j+d1)+1):
+    for d1 in range(1, min(i, n-j-1)+1):
+        for d2 in range(1, min(i-d1, j)+1):
             sum = 0
             for m1 in range(d1):
                 x += dr[0]; y += dc[0]
@@ -22,22 +22,22 @@ def rectangle(i, j):
                 x += dr[1]; y += dc[1]
                 if in_range(x, y):
                     sum += a[x][y] 
-                else:
-                    sum -= 20000       
+                #else:
+                 #   sum -= 20000       
             #print(x, y, 's')
             for m3 in range(d1):
                 x += dr[2]; y += dc[2]
                 if in_range(x, y):
                     sum += a[x][y]
-                else:
-                    sum -= 20000
+                #else:
+                 #   sum -= 20000
             #print(x, y, 't')
             for m4 in range(d2):
                 x += dr[3]; y += dc[3]
                 if in_range(x, y):
                     sum += a[x][y]
-                else:
-                    sum -= 20000
+                #else:
+                 #   sum -= 20000
             #print(x, y, 'f')
             #print(sum)
             MAX = max(MAX, sum)
