@@ -11,7 +11,7 @@ def rectangle(i, j):
     x, y = i, j
     #print(i, j, 'i,j')
     MAX = 0
-    for d1 in range(1, min(i, n-j-1)+1):
+    for d1 in range(1, min(i-1, n-j-1)+1):
         for d2 in range(1, min(i-d1, j)+1):
             sum = 0
             for m1 in range(d1):
