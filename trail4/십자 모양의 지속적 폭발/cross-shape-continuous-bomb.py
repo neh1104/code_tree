@@ -38,12 +38,12 @@ def bomb(x, y, a):
         for d in range(4):
             if in_range(x+dr[d]*i, y+dc[d]*i):
                 g[x+dr[d]*i][y+dc[d]*i] = 0
+    down()
 
 for i in range(m):
     y = c[i]-1
     x = top(y)
     bomb(x, y, g[x][y])
-    down()
 
 for i in g:
     print(*i)
