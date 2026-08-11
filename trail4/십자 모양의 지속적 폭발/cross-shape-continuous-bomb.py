@@ -20,12 +20,10 @@ def in_range(x, y):
     return 0<=x<n and 0<=y<n
 
 def top(i):
-    TOP = n-1
     for j in range(n):
         if g[j][i] != 0:
-            TOP = j
-            break
-    return TOP
+            return j
+    return n-1
 
 dr = [-1, 1, 0, 0]
 dc = [0, 0, 1, -1]
