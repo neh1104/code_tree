@@ -10,7 +10,7 @@ def down():
         tmp = [0 for _ in range(n)]
         n_id = 0
         for j in range(n-1, -1, -1):
-            if g[j][i] != 0:
+            if g[j][i]:
                 tmp[n_id] = g[j][i]
                 n_id += 1
         for j in range(n):
