@@ -36,15 +36,12 @@ for i in range(n):
     t = move(0, i, 0)
     MAX = max(t, MAX)
 
-for i in range(n):
     t = move(i, 0, 1)
     MAX = max(t, MAX)
 
-for i in range(n):
     t = move(n-1, i, 2)
     MAX = max(t, MAX)
 
-for i in range(n):
     t = move(i, n-1, 3)
     MAX = max(t, MAX)
 
