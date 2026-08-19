@@ -21,7 +21,7 @@ def bounce(d, b):
     return d
 
 def move(i, j, d):
-    t = 0
+    t = 1
     while in_range(i, j):
         t += 1
         if a[i][j] != 0:
@@ -45,4 +45,4 @@ for i in range(n):
     t = move(i, n-1, 3)
     MAX = max(t, MAX)
 
-print(MAX+1)
+print(MAX)
