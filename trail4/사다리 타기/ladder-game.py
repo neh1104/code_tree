@@ -33,10 +33,9 @@ ls = []
 def ladder(curr):
     global MIN
     global ls
-
+    if len(ls) >= MIN:
+        return
     if curr == m:
-        if len(ls) >= MIN:
-            return
         if where():
             #print(ls)
             MIN = min(MIN, len(ls))
@@ -48,9 +47,5 @@ def ladder(curr):
     ladder(curr+1)
     ls.pop()
 
-    
-
-
 ladder(0)
 print(MIN)
-    
