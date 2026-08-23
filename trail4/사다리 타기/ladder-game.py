@@ -42,11 +42,13 @@ def ladder(curr):
             MIN = min(MIN, len(ls))
         return
 
+    ladder(curr+1)
+
     ls.append(edges[curr])
     ladder(curr+1)
     ls.pop()
 
-    ladder(curr+1)
+    
 
 
 ladder(0)
