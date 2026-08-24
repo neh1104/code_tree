@@ -14,7 +14,11 @@ def wornl(curr):
     global ls
 
     if curr == n:
-        MAX = max(MAX, len(list(i for i in ls if i >= m-1)))
+        cnt = 0
+        for i in ls:
+            if i >= m-1:
+                cnt += 1
+        MAX = max(MAX, cnt)
         return
     
     for i in range(k):
