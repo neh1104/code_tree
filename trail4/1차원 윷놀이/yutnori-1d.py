@@ -10,8 +10,11 @@ ls = [0 for _ in range(k)]
 
 MAX = 0
 def wornl(curr, d):
+    
     global MAX
     global ls
+    if MAX == lm:
+        return
 
     if curr == n:
         MAX = max(MAX, d)
