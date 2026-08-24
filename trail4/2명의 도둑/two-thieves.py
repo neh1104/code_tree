@@ -10,8 +10,7 @@ def find_c(curr, s, ss):
         return
     
     if curr == m:
-        if s <= c:
-            MAX = max(ss, MAX)
+        MAX = max(ss, MAX)
         return
 
     find_c(curr+1, s, ss)
