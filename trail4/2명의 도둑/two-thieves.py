@@ -18,7 +18,7 @@ def find_c(curr, s, ss):
 
     a = now_ls[curr]
     find_c(curr+1, s+a, ss+a**2)
-    a = now_ls[curr]
+
 
 a_MAX = 0; b_MAX = 0
 mapping = [[-1 for _ in range(n)] for _ in range(n)]
