@@ -9,22 +9,26 @@ k = k if k < lm else lm
 ls = [0 for _ in range(k)]
 
 MAX = 0
-def wornl(curr):
+def wornl(curr, d):
     global MAX
     global ls
 
     if curr == n:
-        cnt = 0
-        for i in ls:
-            if i >= m-1:
-                cnt += 1
-        MAX = max(MAX, cnt)
+        MAX = max(MAX, d)
         return
     
     for i in range(k):
+        if ls[i] >= m-1:
+            MAX = max(MAX, d)
+            continue
+            
         ls[i] += nums[curr]
-        wornl(curr+1)
+        if ls[i] >= m-1:
+            d += 1
+        wornl(curr+1, d)
+        if ls[i] >= m-1:
+            d -= 1
         ls[i] -= nums[curr]
 
-wornl(0)
+wornl(0, 0)
 print(MAX)
