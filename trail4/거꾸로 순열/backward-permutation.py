@@ -1,22 +1,24 @@
 n = int(input())
 
-visited = [False] * (n + 1)
-arr = []
+# Please write your code here.
+visited = [0 for i in range(n+1)]
+ls = []
+def choose(curr):
+    global ls
+    global visited
 
-def choose(curr_num):
-    if curr_num == n + 1:
-        print(*arr)
+    if curr == n:
+        print(*ls)
         return
-
-    # N부터 1까지 역순으로 탐색 (거꾸로 순열)
+    
     for i in range(n, 0, -1):
-        if not visited[i]:
-            visited[i] = True
-            arr.append(i)
-            
-            choose(curr_num + 1)
-            
-            arr.pop()
-            visited[i] = False
+        if visited[i] == 1:
+            continue
+        visited[i] = 1
+        ls.append(i)
+        choose(curr+1)
+        visited[i] = 0
+        ls.pop()
 
-choose(1)
+
+choose(0)
