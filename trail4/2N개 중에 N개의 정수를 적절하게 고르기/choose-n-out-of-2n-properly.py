@@ -11,9 +11,6 @@ def choose(curr, a, d):
         return
 
     if curr == 2*n:
-        if d != n:
-            return
-        MIN = min(MIN, abs(a-abs(s-a)))
         return
     
     k = num[curr]
