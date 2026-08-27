@@ -9,7 +9,7 @@ for i, j in edges:
     graph[j].append(i)
 #print(graph)
 
-cnt = -1
+cnt = 0
 def dfs(curr):
     global cnt
     
@@ -19,6 +19,6 @@ def dfs(curr):
         cnt += 1
         vt[nxt] = 1
         dfs(nxt)
-
+vt[1] = 1
 dfs(1)
-print(cnt if cnt != -1 else 0)
+print(cnt)
