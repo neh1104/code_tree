@@ -2,12 +2,13 @@ n, m = map(int, input().split())
 a = [list(map(int, input().split())) for _ in range(n)]
 
 # Please write your code here.
+from collections import deque
 
 dr = [1, 0, -1, 0]
 dc = [0, 1, 0, -1]
 
 vt = [[0 for _ in range(m)] for _ in range(n)]
-q = [(0, 0)]
+q = deque([(0, 0)])
 r = 0
 
 def in_range(x, y):
@@ -15,7 +16,7 @@ def in_range(x, y):
 
 def bfs():
     while q:
-        r, c = q.pop(0)
+        r, c = q.popleft()
         if r == n-1 and c == m-1:
             print(1)
             return
