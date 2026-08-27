@@ -2,9 +2,9 @@ n = int(input())
 A = [list(map(int, input().split())) for _ in range(n)]
 
 # Please write your code here.
-import sys
+
 vt = [0 for i in range(n)]
-MIN = sys.maxsize
+MIN = 10000*10
 
 def choose(curr, d, cnt):
     global MIN
@@ -18,7 +18,7 @@ def choose(curr, d, cnt):
         return
 
     for i in range(n):
-        if A[curr][i] == 0 or vt[i]:
+        if vt[i] or A[curr][i] == 0:
             continue
 
         vt[i] = 1
