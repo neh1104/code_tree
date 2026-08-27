@@ -20,8 +20,8 @@ def dfs(r, c):
     
     grid[r][c] = 0
 
-    for dx, dy in zip(dr, dc):
-        x = r+dx; y = c+dy
+    for d in [0, 1]:
+        x = r+dr[d]; y = c+dc[d]
         if can_go(x, y):
             dfs(x, y)
 
