@@ -9,7 +9,9 @@ MAX = 0
 
 def choose(curr, d):
     global MAX
-
+    if d <= MAX:
+        return
+        
     if curr == n:
         MAX = max(MAX, d)
         return
