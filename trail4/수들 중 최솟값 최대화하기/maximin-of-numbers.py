@@ -6,7 +6,7 @@ A = [list(map(int, input().split())) for _ in range(n)]
 
 vt = [0 for i in range(n)]
 MAX = 0
-ls = []
+
 def choose(curr, d):
     global MAX
 
@@ -18,10 +18,10 @@ def choose(curr, d):
         if vt[i]:
             continue
 
-        vt[i] = 1; ls.append(A[curr][i])
+        vt[i] = 1
         p = d if d < A[curr][i] else A[curr][i]
         choose(curr+1, p)
-        vt[i] = 0; ls.pop()
+        vt[i] = 0
 
 choose(0, 10000)
 print(MAX)
