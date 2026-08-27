@@ -7,7 +7,6 @@ vt = [0 for i in range(n)]
 MIN = sys.maxsize
 
 def choose(curr, d, cnt):
-    global vt
     global MIN
 
     if d >= MIN:
