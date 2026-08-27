@@ -13,13 +13,12 @@ def choose(curr, d, cnt):
         return
 
     if cnt == n:
-        if A[curr][0] == 0:
-            return
-        MIN = min(MIN, d+A[curr][0])
+        if A[curr][0] != 0:
+            MIN = min(MIN, d+A[curr][0])
         return
 
     for i in range(n):
-        if A[curr][i] == 0 or vt[i] == 1:
+        if A[curr][i] == 0 or vt[i]:
             continue
 
         vt[i] = 1
