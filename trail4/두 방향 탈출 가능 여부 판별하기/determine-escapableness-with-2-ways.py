@@ -3,7 +3,7 @@ grid = [list(map(int, input().split())) for _ in range(n)]
 
 # Please write your code here.
 ch = 0
-vt = [[1 for _ in range(n)] for _ in range(m)]
+
 def can_go(x, y):
     return 0<=x<n and 0<=y<m and grid[x][y] != 0
 
