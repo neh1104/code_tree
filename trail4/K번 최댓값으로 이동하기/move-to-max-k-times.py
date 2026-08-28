@@ -29,16 +29,15 @@ def bfs(mr, mc, MAX, start):
 
             q.append((i, j))
             vt[i][j] = 1  
+            
             #선택
-            if grid[i][j] < MAX:
-                continue
-
-            if grid[i][j] == MAX and (i, j) < (mr, mc):
-                mr = i; mc = j
-
             if grid[i][j] > MAX:
                 MAX = grid[i][j]
                 mr = i; mc = j
+
+            elif grid[i][j] == MAX and (i, j) < (mr, mc):
+                mr = i; mc = j
+
 
             
     return mr, mc
