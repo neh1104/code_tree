@@ -1,53 +1,50 @@
-from collections import deque
-
 n, m = map(int, input().split())
 a = [list(map(int, input().split())) for _ in range(n)]
+
+# Please write your code here.
+from collections import deque
 
 dr = [1, 0, -1, 0]
 dc = [0, 1, 0, -1]
 
-visited = [[False] * m for _ in range(n)]
+vt = [[0 for _ in range(m)] for _ in range(n)]
 
-q = deque([(0, 0)])
-visited[0][0] = True
+def in_range(x, y):
+    return 0<=x<n and 0<=y<m and vt[x][y] == 0
 
-time = 0
-last = 0
-
-while q:
-    next_q = deque()
-    melted = 0
-
+def bfs():
+    global cnt
+    global how_many
     while q:
         r, c = q.popleft()
 
         for d in range(4):
-            nr = r + dr[d]
-            nc = c + dc[d]
+            x = r+dr[d]; y = c+dc[d]
+            if in_range(x, y):
+                vt[x][y] = 1
+                if a[x][y]:
+                    nq.append((x, y))
+                    how_many += 1
+                else:
+                    #print(x,y)
+                    q.append((x, y))
+                    cnt += 1
+                    
 
-            if not (0 <= nr < n and 0 <= nc < m):
-                continue
 
-            if visited[nr][nc]:
-                continue
-
-            visited[nr][nc] = True
-
-            if a[nr][nc] == 1:
-                next_q.append((nr, nc))
-                melted += 1
-            else:
-                q.append((nr, nc))
-
-    if not next_q:
+cnt = 0; nq = deque([(0, 0)])
+time = -1
+ls = []
+while True:
+    q = deque(nq); nq = deque()
+    if not(q):
         break
+    r, c = q[0]; vt[r][c] = 1; cnt += 1
+    how_many = 0; time += 1
 
-    last = melted
-    time += 1
+    bfs()
+    ls.append(how_many)
+    for i, j in nq:
+        a[i][j] = 0
 
-    for r, c in next_q:
-        a[r][c] = 0
-
-    q = next_q
-
-print(time, last)
+print(time, ls[-2])
