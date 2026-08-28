@@ -5,17 +5,16 @@ grid = [list(map(int, input().split())) for _ in range(n)]
 
 from collections import deque
 
+vt = [[-1 for _ in range(n)] for _ in range(n)]
 q = deque()
 for i in range(n):
     for j in range(n):
         if grid[i][j] == 2:
+            vt[i][j] = 0
             q.append((i, j))
 
-vt = [[-1 for _ in range(n)] for _ in range(n)]
 dr = [1, 0, -1, 0]
 dc = [0, 1, 0, -1]
-for i, j in q:
-    vt[i][j] = 0
 
 def bfs():
 
