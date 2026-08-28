@@ -16,7 +16,6 @@ def bfs(mr, mc, MAX, start):
     while q:
         r, c = q.popleft()
         
-        a = grid[r][c]
         for d in range(4):
             i = r + dr[d]; j = c+dc[d]
             if not(in_range(i, j)): #범위를 벗어난다면
