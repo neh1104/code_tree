@@ -35,9 +35,5 @@ for i in range(n):
             ls.append(bfs())
 #print(ls)
 
-ls.sort(key = lambda x: -x)
-s = 0
-k = k if len(ls) > k else len(ls)
-for i in range(k):
-    s += ls[i]
-print(s)
+ls.sort(reverse=True)
+print(sum(ls[:k]))
