@@ -4,7 +4,7 @@ r, c = map(int, input().split())
 
 # Please write your code here.
 from collections import deque
-bigger = [[0 for _ in range(n)] for _ in range(n)]
+
 
 dr = [1, 0, -1, 0]
 dc = [0, 1, 0, -1]
@@ -20,11 +20,11 @@ def bfs(mr, mc, MAX, start):
             i = r + dr[d]; j = c+dc[d]
             if not(in_range(i, j)): #범위를 벗어난다면
                 continue
-            if vt[i][j] or bigger[i][j]: #현재 탐색에서 이미 방문한 곳일때
+            if vt[i][j]: #현재 탐색에서 이미 방문한 곳일때
                 continue
 
             if grid[i][j] >= start: #스타트 값보다 클 때
-                bigger[i][j] = 1
+
                 continue
 
             q.append((i, j))
