@@ -35,7 +35,7 @@ def bfs(mr, mc, MAX, start):
                 MAX = grid[i][j]
                 mr = i; mc = j
 
-            elif grid[i][j] == MAX and (i, j) < (mr, mc):
+            elif grid[i][j] == MAX and (i <= mr or (i == mr and j < mc)):
                 mr = i; mc = j
 
 
