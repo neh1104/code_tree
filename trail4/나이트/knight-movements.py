@@ -7,24 +7,25 @@ from collections import deque
 dr = [-2, -1, 1, 2, 2, 1, -1, -2]
 dc = [1, 2, 2, 1, -1, -2, -2, -1]
 vt = [[-1 for _ in range(n)] for _ in range(n)]
+r1 -= 1; r2 -= 1; c1 -= 1; c2 -= 1
 
 def bfs():
 
     while q:
         r, c = q.popleft()
 
-        if (r, c) == (r2-1, c2-1):
-            break
+        if (r, c) == (r2, c2):
+            return
         
-        rc = vt[r][c]
+        dist = vt[r][c]
 
         for d in range(8):
             x = r+dr[d]; y = c+dc[d]
             if 0<=x<n and 0<=y<n and vt[x][y] == -1:
-                vt[x][y] = rc+1
+                vt[x][y] = dist+1
                 q.append((x, y))
 
-q = deque([(r1-1, c1-1)])
-vt[r1-1][c1-1] = 0
+q = deque([(r1, c1)])
+vt[r1][c1] = 0
 bfs()
-print(vt[r2-1][c2-1])
+print(vt[r2][c2])
