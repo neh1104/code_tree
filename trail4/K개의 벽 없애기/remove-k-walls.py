@@ -19,7 +19,7 @@ l = len(wall)
 dr = [1, 0, -1, 0]
 dc = [0, 1, 0, -1]
 
-remove = []; MIN = 10000
+remove = set(); MIN = float('INF')
 def dfs(curr, d):
     global MIN
     if d == k:
@@ -30,7 +30,7 @@ def dfs(curr, d):
     if curr == l:
         return
 
-    remove.append(wall[curr])
+    remove.add(wall[curr])
     dfs(curr+1, d+1)
     remove.pop()
 
@@ -56,7 +56,7 @@ def bfs(rm):
                 if grid[x][y] == 0 or (x, y) in rm:
                     vt[x][y] = dist+1
                     q.append((x, y))
-    return 10000
+    return float('INF')
 
 dfs(0, 0)
-print(MIN if MIN != 10000 else -1)
+print(MIN if MIN != float('INF') else -1)
