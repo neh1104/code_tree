@@ -26,16 +26,10 @@ def bfs():
             x = r+dr[d]; y = c+dc[d]
             if 0<=x<n and 0<=y<n and vt[x][y] == 0:
                 if grid[x][y] == 1:
-                    nq.append((x, y))
+                    q.append((x, y))
                     vt[x][y] = dist+1
-nq = deque()
 
-while True:
-    bfs()
-    if not nq:
-        break
-    q = deque([row[:] for row in nq])
-    nq = deque()
+bfs()
 
 for i in range(n):
     for j in range(n):
