@@ -17,7 +17,7 @@ def dp(r, c):
         y = c + dc[d]
         if 0 <= x < n and 0 <= y < n and grid[x][y] > now:
             MAX = max(MAX, dp(x, y) + 1)
-        memo[r][c] = MAX
+    memo[r][c] = MAX
     return memo[r][c]
 
 MAX = 0
