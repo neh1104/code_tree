@@ -16,7 +16,7 @@ for i in range(n):
     a, b = lines[i]
     for j in range(i):
         x1, x2 = lines[j]
-        if x2 >= a and x1 <= b:
+        if x2 >= a:
             continue
         vt[i] = max(vt[i], vt[j]+1)
 
