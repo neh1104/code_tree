@@ -1,21 +1,18 @@
 n = int(input())
-x1, x2 = [], []
-lines = []
-for _ in range(n):
-    a, b = map(int, input().split())
-    lines.append((a, b))
-
+lines = [tuple(map(int, input().split()))
+    for _ in range(n)
+]
 # Please write your code here.
 
-vt = [1 for _ in range(n)]
-lines.sort(key = lambda x :(x[0], x[1]))
+vt = [1]*n
+lines.sort()
 
 #bottom-top
 
 for i in range(n):
-    a, b = lines[i]
+    a, _ = lines[i]
     for j in range(i):
-        x1, x2 = lines[j]
+        _, x2 = lines[j]
         if x2 < a:
             vt[i] = max(vt[i], vt[j]+1)
 
