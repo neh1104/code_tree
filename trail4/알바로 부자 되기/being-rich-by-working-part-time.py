@@ -14,11 +14,8 @@ def dp(curr):
     price = p[curr]
     vt[curr] = price
     for i in range(curr+1, n):
-        I = dp(i)
         if s[i] > e[curr]:
-            vt[curr] = max(vt[curr], I+price) 
+            vt[curr] = max(vt[curr], dp(i)+price) 
     return vt[curr]
 
-dp(0)
-#print(vt)
-print(max(vt))
+print(max(dp(i) for i in range(n)))
