@@ -8,9 +8,9 @@ vt[0] = 1
 for i in range(1, n):
     MAX = 0
     for j in range(i):
-        if vt[j] <= MAX:
+        if m[j] >= m[i]:
             continue
-        if m[j]<m[i]:
+        if vt[j] > MAX:
             MAX = vt[j]
     
     vt[i] = MAX+1
