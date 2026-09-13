@@ -3,7 +3,7 @@ coin = list(map(int, input().split()))
 
 # Please write your code here.
 
-vt = [-1 for _ in range(M+1)]
+vt = [-1]*(M+1)
 vt[0] = 0
 
 coin.sort()
