@@ -6,12 +6,13 @@ coin = list(map(int, input().split()))
 vt = [-1 for _ in range(M+1)]
 vt[0] = 0
 
+coin.sort()
 for i in range(M):
     if vt[i] == -1:
         continue
     for c in coin:
         if i+c > M:
-            continue
+            break
         vt[i+c] = max(vt[i]+1, vt[i+c])
 
 print(vt[M])
