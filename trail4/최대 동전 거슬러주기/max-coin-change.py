@@ -1,0 +1,17 @@
+N, M = map(int, input().split())
+coin = list(map(int, input().split()))
+
+# Please write your code here.
+
+vt = [-1 for _ in range(M+1)]
+vt[0] = 0
+
+for i in range(M):
+    if vt[i] == -1:
+        continue
+    for c in coin:
+        if i+c > M:
+            continue
+        vt[i+c] = max(vt[i]+1, vt[i+c])
+
+print(vt[M])
