@@ -10,8 +10,9 @@ dp[0] = 0
 
 for i in range(n):
     for j in range(t, arr[i]-1, -1):
+        if dp[j-arr[i]] == -1:
+            continue
         dp[j] = max(dp[j], dp[j-arr[i]]+arr[i])
 
 MAX = max(dp)
-
 print(T-2*MAX)
