@@ -1,31 +1,24 @@
 n = int(input())
 arr = list(map(int, input().split()))
 
+# Please write your code here.
 S = sum(arr)
-NEG = -1
-
-dp = [NEG] * (2 * S + 1)
+dp = [-1]*(2*S+1)
 dp[S] = 0
 
-for x in arr:
-    ndp = dp.copy()
-
-    for d in range(-S, S + 1):
-        cur = dp[d + S]
-
-        if cur == NEG:
+for i in range(n):
+    new_dp = dp[:]
+    for j in range(2*S+1):
+        if dp[j] == -1:
             continue
 
-        ndp[d + x + S] = max(
-            ndp[d + x + S],
-            cur + x
-        )
+        if arr[i]+j < 2*S+1:
+            new_dp[arr[i]+j] = max(new_dp[arr[i]+j], dp[j]+arr[i])
+            #print(i, j, '+')
 
-        ndp[d - x + S] = max(
-            ndp[d - x + S],
-            cur + x
-        )
+        if j-arr[i] >= 0:
+            new_dp[j-arr[i]] = max(new_dp[j-arr[i]], dp[j]+arr[i])
+            #print(i, j, '-')
+    dp = new_dp
 
-    dp = ndp
-
-print(dp[S] // 2)
+print(dp[S]//2)
