@@ -9,9 +9,9 @@ if s%2 == 0:
     for x in arr:
         ndp = set()
         for i in dp:
-            if i+x < s:
+            if i+x <= s//2:
                 ndp.add(i+x)
-            if i-x > -s:
+            if i-x >= -s//2:
                 ndp.add(i-x)
         dp = ndp
     #print(dp)
