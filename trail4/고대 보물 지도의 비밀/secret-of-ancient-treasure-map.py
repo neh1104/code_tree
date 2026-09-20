@@ -7,6 +7,7 @@ import sys
 
 INT_MIN = -sys.maxsize
 dp = [[INT_MIN for _ in range(k + 1)] for _ in range(n + 1)]
+answer = INT_MIN
 
 for i in range(1, n + 1):
     x = numbers[i - 1]
@@ -25,10 +26,8 @@ for i in range(1, n + 1):
         for j in range(k + 1):
             if dp[i - 1][j] != INT_MIN:
                 dp[i][j] = max(dp[i][j], dp[i - 1][j] + x)
+            answer = max(answer, dp[i][j])
 
-answer = INT_MIN
 
-for i in range(1, n + 1):
-    answer = max(answer, max(dp[i]))
-
-print(answer)
+#print(*dp, sep = '\n')
+print(answer if answer != INT_MIN else max(numbers))
