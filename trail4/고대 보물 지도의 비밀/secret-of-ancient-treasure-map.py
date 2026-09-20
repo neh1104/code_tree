@@ -3,31 +3,19 @@ numbers = list(map(int, input().split()))
 
 # Please write your code here.
 
-import sys
+dp = [[-10001]*(k+1) for _ in range(n)]
+if numbers[0] < 0:
+    dp[0][1] = numbers[0]
+else:
+    dp[0][0] = numbers[0]
 
-INT_MIN = -sys.maxsize
-dp = [[INT_MIN for _ in range(k + 1)] for _ in range(n + 1)]
-answer = INT_MIN
-
-for i in range(1, n + 1):
-    x = numbers[i - 1]
-
-    if x < 0:
-        if k >= 1:
-            dp[i][1] = x
-
-        for j in range(1, k + 1):
-            if dp[i - 1][j - 1] != INT_MIN:
-                dp[i][j] = dp[i - 1][j - 1] + x
-
+for i in range(1, n):
+    if numbers[i] < 0:
+        for count in range(1, k+1):
+            if dp[i-1][count-1] == -10001:
+                continue
+            dp[i][count] = max(dp[i-1][count-1], 0) + numbers[i]
     else:
-        dp[i][0] = x
-
-        for j in range(k + 1):
-            if dp[i - 1][j] != INT_MIN:
-                dp[i][j] = max(dp[i][j], dp[i - 1][j] + x)
-            answer = max(answer, dp[i][j])
-
-
-#print(*dp, sep = '\n')
-print(answer if answer != INT_MIN else max(numbers))
+        for count in range(k+1):
+            dp[i][count] = max(0, dp[i-1][count]) + numbers[i]
+print(max([max(row) for row in dp]))
