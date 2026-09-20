@@ -1,22 +1,15 @@
 n, k = map(int, input().split())
-numbers = list(map(int, input().split()))
+numbers = [0] + list(map(int, input().split()))
 
-# Please write your code here.
+dp = [[0] * (n + 1) for _ in range(k + 1)]
+for i in range(1, n + 1):
+    if numbers[i] < 0: continue
+    dp[0][i] = max(numbers[i], dp[0][i - 1] + numbers[i])
 
-dp = [[-10001]*(k+1) for _ in range(n)]
-if numbers[0] < 0:
-    dp[0][1] = numbers[0]
-else:
-    dp[0][0] = numbers[0]
+for i in range(1, k + 1):
+    for j in range(1, n + 1):
+        dp[i][j] = max(dp[i - (numbers[j] < 0)][j - 1] + numbers[j], numbers[j])
 
-for i in range(1, n):
-    if numbers[i] < 0:
-        dp[i][1] = max(dp[i-1][0], 0) + numbers[i]
-        for count in range(1, k+1):
-            if dp[i-1][count-1] == -10001:
-                continue
-            dp[i][count] = dp[i-1][count-1] + numbers[i]
-    else:
-        for count in range(k+1):
-            dp[i][count] = max(0, dp[i-1][count]) + numbers[i]
-print(max([max(row) for row in dp]))
+# print(*dp, sep='\n')
+print(max(dp[k][1:]))
+
