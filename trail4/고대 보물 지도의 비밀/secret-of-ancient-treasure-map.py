@@ -11,10 +11,11 @@ else:
 
 for i in range(1, n):
     if numbers[i] < 0:
+        dp[i][1] = max(dp[i-1][0], 0) + numbers[i]
         for count in range(1, k+1):
             if dp[i-1][count-1] == -10001:
                 continue
-            dp[i][count] = max(dp[i-1][count-1], 0) + numbers[i]
+            dp[i][count] = dp[i-1][count-1] + numbers[i]
     else:
         for count in range(k+1):
             dp[i][count] = max(0, dp[i-1][count]) + numbers[i]
