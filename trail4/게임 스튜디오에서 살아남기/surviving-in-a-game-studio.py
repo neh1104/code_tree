@@ -12,5 +12,5 @@ for t in range(3):
         for j in range(1, 3):
             dp[t][i][j] = dp[t][i-1][j-1]
 
-SUM = sum([sum(arr[n]) for arr in dp[:3]])
+SUM = sum(sum(arr[n]) for arr in dp[:3])
 print(SUM%(10**9+7))
