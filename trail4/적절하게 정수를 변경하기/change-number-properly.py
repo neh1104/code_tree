@@ -2,9 +2,9 @@ N, M = map(int, input().split())
 a = [0] + list(map(int, input().split()))
 
 # Please write your code here.
-
-dp = [[[0]*4 for _ in range(M+2)] for _ in range(N+1)]
-
+INT_MIN = -10000
+dp = [[[INT_MIN]*4 for _ in range(M+2)] for _ in range(N+1)]
+dp[0][0] = [0, 0, 0, 0]
 for i in range(1, N+1):
     for j in range(1, M+2):
         for k in range(4):
@@ -14,4 +14,4 @@ for i in range(1, N+1):
                 dp[i][j][k]+=1
 
 #print(*dp, sep = '\n')
-print(max(dp[N][M+1]))
+print(max(max(arr) for arr in dp[N]))
