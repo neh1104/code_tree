@@ -17,8 +17,7 @@ for i in range(N):
         if dp[i][j] != INT_MAX:
             dp[i+1][j] = min(dp[i+1][j], dp[i][j]+10-toque)
             dp[i+1][(j+toque)%10] = min(dp[i+1][(j+toque)%10], dp[i][j]+toque)
-            #print(a[i], now, (now+toque)%10, toque)
-            #print(now, (now+toque)%10, toque)
-#print(*dp, sep= '\n')
+            
+print(*dp, sep= '\n')
 
 print(min(dp[N]))
