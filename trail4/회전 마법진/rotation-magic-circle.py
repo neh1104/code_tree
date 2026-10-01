@@ -18,6 +18,6 @@ for i in range(N):
             dp[i+1][j] = min(dp[i+1][j], dp[i][j]+10-toque)
             dp[i+1][(j+toque)%10] = min(dp[i+1][(j+toque)%10], dp[i][j]+toque)
             
-print(*dp, sep= '\n')
+#print(*dp, sep= '\n')
 
 print(min(dp[N]))
