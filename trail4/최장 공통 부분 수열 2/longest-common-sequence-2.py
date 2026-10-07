@@ -12,7 +12,7 @@ for i in range(1, n+1):
         if A[i-1] == B[j-1]:
             dp[i][j] = dp[i-1][j-1]+1
         else:
-            dp[i][j] = max(dp[i-1][j], dp[i][j-1], dp[i-1][j-1])
+            dp[i][j] = max(dp[i-1][j], dp[i][j-1])
 #print(*dp, sep = '\n')
 i = n; j = m
 o = dp[n][m]
@@ -23,12 +23,10 @@ while o:
         i -= 1; j -= 1
         o -= 1
     else:
-        I = i-1; J = j-1
+
         if dp[i-1][j] >= dp[i][j-1]:
             i, j = i-1, j 
         else:
             i, j = i, j-1
-        if dp[i][j] < dp[I][J]:
-            i, j = I, J
 
 print(ans)
