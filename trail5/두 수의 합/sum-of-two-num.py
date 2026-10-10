@@ -14,4 +14,5 @@ for i in arr:
         cnt += dt[i]-1
     elif k-i in dt:
         cnt += dt[k-i]
+
 print(cnt//2)
