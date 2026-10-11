@@ -13,6 +13,7 @@ for i in range(n):
     for j in range(i+1, n):
         dt[arr[j]] -= 1
         target = k-arr[i]-arr[j]
-        cnt += dt.get(target, 0)
+        if target in dt:
+            cnt += dt[target]
         dt[arr[j]] += 1
 print(cnt//2)
