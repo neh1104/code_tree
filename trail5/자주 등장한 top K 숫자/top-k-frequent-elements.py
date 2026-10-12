@@ -10,7 +10,5 @@ for i in arr:
 
 dt = sorted(dt.items(), key=lambda x : (x[1], x[0]), reverse = True)
 
-for idx, x in enumerate(dt):
-    print(x[0], end = ' ')
-    if idx == k-1:
-        break
+for i in dt[:k]:
+    print(i[0], end = ' ')
