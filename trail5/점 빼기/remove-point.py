@@ -12,12 +12,13 @@ from sortedcontainers import SortedSet
 
 s = SortedSet(points)
 
-
+l = len(s)
 for q in queries:
-    l = len(s)
+    
     idx = s.bisect_left((q, 0))
     if idx != l:
         print(*s.pop(idx))
+        l -= 1
     else:
         print(-1, -1)
     
