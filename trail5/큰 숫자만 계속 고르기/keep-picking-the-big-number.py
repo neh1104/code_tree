@@ -5,10 +5,8 @@ arr = list(map(int, input().split()))
 
 import heapq
 
-pq = []
-
-for a in arr:
-    heapq.heappush(pq, -a)
+pq = [-i for i in arr]
+heapq.heapify(pq)
 
 for _ in range(m):
     a = heapq.heappop(pq)
