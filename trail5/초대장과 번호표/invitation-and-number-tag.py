@@ -12,32 +12,31 @@ for _ in range(G):
 
 from collections import deque
 
-person_groups = [[] for _ in range(N + 1)]
+gs_ls = [i for i in group_size]
+n_ls = [[] for _ in range(N+1)]
+dq = deque([1])
+vt = [0 for _ in range(N+1)]
+vt[1] = 1
+cnt = 1
+
 for i in range(G):
-    for person in group[i]:
-        person_groups[person].append(i)
+    for n in group[i]:
+        n_ls[n].append(i)
 
-left_cnt = group_size.copy()
-group_sets = [set(g) for g in group]
-
-invited = [False] * (N + 1)
-queue = deque()
-
-invited[1] = True
-queue.append(1)
-
-while queue:
-    curr = queue.popleft()
-    
-    for g_idx in person_groups[curr]:
-        if curr in group_sets[g_idx]:
-            group_sets[g_idx].remove(curr)
-            left_cnt[g_idx] -= 1
-            
-            if left_cnt[g_idx] == 1:
-                last_person = list(group_sets[g_idx])[0]
-                if not invited[last_person]:
-                    invited[last_person] = True
-                    queue.append(last_person)
-
-print(sum(invited))
+while dq:
+    #print()
+    n = dq.pop()
+    #print(n)
+    for i in n_ls[n]:
+        gs_ls[i] -= 1
+        if gs_ls[i] == 1:
+            #print(i)
+            for j in group[i]:
+                if vt[j]:
+                    continue
+                dq.append(j)
+                vt[j] = 1
+                cnt += 1
+                #print(j, 'new', cnt)
+#print()
+print(cnt)
