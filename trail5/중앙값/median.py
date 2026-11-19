@@ -21,6 +21,5 @@ for _ in range(t):
                     heapq.heappush(set_ls, -heapq.heappop(pq))
                     if -set_ls[0] <= pq[0]:
                         break
-                print(-set_ls[0], end = ' ')
-                    
+                print(-set_ls[0], end = ' ')      
     print()
