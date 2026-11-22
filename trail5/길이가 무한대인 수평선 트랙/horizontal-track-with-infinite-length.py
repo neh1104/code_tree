@@ -8,17 +8,19 @@ for _ in range(n):
     speed.append(v)
 
 # Please write your code here.
-runners = sorted(zip(start, speed))
 
-group_count = 1
-last_pos = runners[-1][0] + runners[-1][1] * t
+from sortedcontainers import SortedSet
 
-for i in range(n - 2, -1, -1):
-    s, v = runners[i]
-    reach_pos = s + v * t
+runners = SortedSet()
+for i in range(n):
+    runners.add((start[i], start[i]+t*speed[i]))
 
-    if reach_pos < last_pos:
-        group_count += 1
-        last_pos = reach_pos
+#print(*runners)
 
-print(group_count)
+cnt = 0; last = float('inf')
+for i in range(n-1, -1, -1):
+    st, end = runners[i] 
+    if end < last:
+        cnt += 1
+        last = end
+print(cnt)
