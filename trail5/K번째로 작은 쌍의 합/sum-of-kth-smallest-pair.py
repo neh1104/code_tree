@@ -19,5 +19,4 @@ for _ in range(k):
     # arr2에 다음 원소가 남아있다면 다음 후보 쌍을 힙에 추가
     if j + 1 < m:
         heapq.heappush(pq, (arr1[i] + arr2[j + 1], i, j + 1))
-
 print(ans)
