@@ -33,5 +33,4 @@ while True:
             break
         A, B, C = heapq.heappop(pq)
         heapq.heappush(tmp, (B, A, C))
-
 print(MAXWAIT)
